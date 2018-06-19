@@ -15,8 +15,8 @@ namespace Envi
         private int width, height;
         private int speed;
         public Image bulletImage;
-        public Rectangle bulletRectangle;
-        public Rectangle BulletRect
+        private Rectangle bulletRectangle;
+        public override Rectangle BulletRect
         {
             get { return bulletRectangle; }
         }
@@ -35,12 +35,12 @@ namespace Envi
             bulletRectangle = new Rectangle(x, y, width, height);
         }
 
-        public void DrawBullet(Graphics paper)
+        public override void DrawBullet(Graphics paper)
         {
             paper.DrawImage(bulletImage, bulletRectangle);
         }
 
-        public void MoveBullet(int charY, int charX)
+        public override void MoveBullet(int charY, int charX)
         {
 
             if (bulletRectangle.Y < 50)

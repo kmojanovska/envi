@@ -49,6 +49,7 @@
             this.lblCharacter = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.lblPause = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timer1
@@ -255,6 +256,18 @@
             this.label10.TabIndex = 21;
             this.label10.Text = "Level 1";
             // 
+            // lblPause
+            // 
+            this.lblPause.AutoSize = true;
+            this.lblPause.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblPause.Font = new System.Drawing.Font("Showcard Gothic", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPause.Location = new System.Drawing.Point(131, 226);
+            this.lblPause.Name = "lblPause";
+            this.lblPause.Size = new System.Drawing.Size(132, 44);
+            this.lblPause.TabIndex = 22;
+            this.lblPause.Text = "PAUSE";
+            this.lblPause.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,6 +276,7 @@
             this.BackgroundImage = global::Envi.Properties.Resources.back;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(398, 461);
+            this.Controls.Add(this.lblPause);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblCharacter);
@@ -285,6 +299,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.ResumeLayout(false);
@@ -314,6 +329,7 @@
         private System.Windows.Forms.Label lblCharacter;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblPause;
     }
 }
 

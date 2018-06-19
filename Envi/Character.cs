@@ -25,7 +25,7 @@ namespace Envi
         public Character()
         {
             //300 y-
-            x = 50;
+            x = 100;
             y = Form1.ActiveForm.Height-120;
             width = 50;
             height = 69;

@@ -17,7 +17,6 @@ namespace Envi
         Character character = null;
         Monsters monsters = null;
         Bullets bullets = null;
-        BulletType1 bullet = null;
         private object e;
         public Boolean play = false;
         private double time = 0;
@@ -42,7 +41,6 @@ namespace Envi
             character = new Character();
             character.characterImage = characterImage;
             checkForLevel();
-            
             monsters.AddMonster(new MonsterWeek(170, 15));
             bullets.AddBullet(new BulletType1(character.GetX, character.GetY, 15));
 
@@ -57,6 +55,7 @@ namespace Envi
         public Form1()
         {
             Pause();
+            this.KeyPreview = true;
             InitializeComponent();
         }
 
@@ -66,15 +65,9 @@ namespace Envi
             if (character != null)
             {
                 character.drawCharacter(paper);
-                //monster1.DrawMonster(paper);
-                //bullet.DrawBullet(paper);
-                //monster.DrawMonster(paper);
-
                 bullets.DrawBullets(paper);
-
-               monsters.DrawMonsters(paper);
+                monsters.DrawMonsters(paper);
             }
-
 
         }
 
@@ -130,7 +123,7 @@ namespace Envi
                     }
                     foreach (BulletType1 bullet in bullets.GetBulletsList)
                     {
-                        if (m.Collision(bullet.bulletRectangle))
+                        if (m.Collision(bullet.BulletRect))
                         {
                             bullets.KillBullet(bullet);
                             BulletType1 b = new BulletType1(character.GetX, character.GetY, 30);
@@ -220,32 +213,22 @@ namespace Envi
             {
                 foreach (BulletType1 bullet in bullets.GetBulletsList)
                 {
-
                     bullet.x = character.GetX;
                     bullet.y = character.GetY;
                     bullet.MoveBullet(character.GetX, character.GetY);
                 }
                 time += 0.1;
                 label1.Text = String.Format("{0:N2}", time);
-
                 score = (int)(time * 10) * monstersKilled;
                 label9.Text = score.ToString();
-
-                
             }
-            
-
             this.Invalidate();
-
         }
 
         private void btn_play_Click(object sender, EventArgs e)
         {
-
-            
             btn_play.Text = "Restart";
             Play();
-
         }
 
         private void timer3_Tick(object sender, EventArgs e)
@@ -375,6 +358,24 @@ namespace Envi
                 Form1.ActiveForm.BackgroundImage = Envi.Properties.Resources.back;
                 label10.Font = new Font("Comic Sans MS", 14, FontStyle.Bold);
             }
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 'p')
+            {
+                if (play == true)
+                {
+                    play = false;
+                    lblPause.Visible = true;
+                }
+                else
+                {
+                    play = true;
+                    lblPause.Visible = false;
+                }
+                
+            } 
         }
     }
 }

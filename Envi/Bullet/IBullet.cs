@@ -7,9 +7,17 @@ using System.Threading.Tasks;
 
 namespace Envi
 {
-    public interface IBullet
+    public abstract class IBullet
     {
-        void MoveBullet(int charY, int charX);
-        void DrawBullet(Graphics paper);
+        private Rectangle bulletRectangle;
+
+        public virtual Rectangle BulletRect
+        {
+            get { return bulletRectangle; }
+        }
+
+        public virtual void DrawBullet(Graphics paper) { }
+
+        public virtual void MoveBullet(int charY, int charX) { }
     }
 }
