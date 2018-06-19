@@ -19,6 +19,7 @@ namespace Envi
         Bullets bullets = null;
         private object e;
         public Boolean play = false;
+        private int level = 1;
         private double time = 0;
         private int score = 0;
         private int monstersKilled = 0;
@@ -42,8 +43,14 @@ namespace Envi
             character.characterImage = characterImage;
             checkForLevel();
             monsters.AddMonster(new MonsterWeek(170, 15));
-            bullets.AddBullet(new BulletType1(character.GetX, character.GetY, 15));
-
+            if(level == 1)
+            {
+                bullets.AddBullet(new BulletType1(character.GetX, character.GetY, 15));
+            }
+            else
+            {
+                bullets.AddBullet(new BulletType2(character.GetX, character.GetY, 15));
+            }
         }
 
         void Pause()
@@ -121,7 +128,7 @@ namespace Envi
 
                         }
                     }
-                    foreach (BulletType1 bullet in bullets.GetBulletsList)
+                    foreach (IBullet bullet in bullets.GetBulletsList)
                     {
                         if (m.Collision(bullet.BulletRect))
                         {
@@ -131,12 +138,12 @@ namespace Envi
                             b.bulletImage = Properties.Resources.fireBig;
                             if (m is MonsterMedium)
                             {
-                                if ((m as MonsterMedium).strength==2)
+                                m.IncreaseStrength();
+                                if (m.GetStrength()==2)
                                 {
                                     monstersKilled += 2;
                                     monsters.KillMonster(m);
                                 }
-                                (m as MonsterMedium).IncreaseStrength();
                             }
                             else if( m is MonsterWeek)
                             {
@@ -144,12 +151,12 @@ namespace Envi
                                 monstersKilled++;
                             } else if(m is MonsterStrong)
                             {
-                                if ((m as MonsterStrong).strength == 3)
+                                m.IncreaseStrength();
+                                if (m.GetStrength() == 3)
                                 {
                                     monstersKilled += 3;
                                     monsters.KillMonster(m);
                                 }
-                                (m as MonsterStrong).IncreaseStrength();
                             }
 
                             label2.Text = String.Format("{0} monsters killed so far.", monstersKilled);
@@ -211,7 +218,7 @@ namespace Envi
         {
             if (play == true)
             {
-                foreach (BulletType1 bullet in bullets.GetBulletsList)
+                foreach (IBullet bullet in bullets.GetBulletsList)
                 {
                     bullet.x = character.GetX;
                     bullet.y = character.GetY;
@@ -246,7 +253,14 @@ namespace Envi
             if(play == true)
             {
                 bullets = new Bullets();
-                bullets.AddBullet(new BulletType1(character.GetX, character.GetY, 30));
+                if(level == 1)
+                {
+                    bullets.AddBullet(new BulletType1(character.GetX, character.GetY, 30));
+                }
+                else
+                {
+                    bullets.AddBullet(new BulletType2(character.GetX, character.GetY, 30));
+                }
                 this.Invalidate();
             }
 
@@ -256,7 +270,14 @@ namespace Envi
         {
             if (play == true)
             {
-                bullets.AddBullet(new BulletType1(character.GetX, character.GetY, 30));
+                if(level == 1)
+                {
+                    bullets.AddBullet(new BulletType1(character.GetX, character.GetY, 30));
+                }
+                else
+                {
+                    bullets.AddBullet(new BulletType2(character.GetX, character.GetY, 30));
+                }
                 
                 this.Invalidate();
             }
@@ -339,6 +360,7 @@ namespace Envi
         {
             if(score > 600)
             {
+                level = 3;
                 monsters = new Monsters(3);
                 label10.Text = "Level 3!";
                 Form1.ActiveForm.BackgroundImage = Envi.Properties.Resources._3;
@@ -346,6 +368,7 @@ namespace Envi
             }
             else if (score > 300 && score <=600)
             {
+                level = 2;
                 monsters = new Monsters(2);
                 label10.Text = "Level 2!";
                 Form1.ActiveForm.BackgroundImage = Envi.Properties.Resources.sky;
@@ -353,7 +376,8 @@ namespace Envi
             }
             else if(score <= 300)
             {
-                monsters = new Monsters(1);
+                level = 1;
+                monsters = new Monsters(2);
                 label10.Text = "Level 1";
                 Form1.ActiveForm.BackgroundImage = Envi.Properties.Resources.back;
                 label10.Font = new Font("Comic Sans MS", 14, FontStyle.Bold);

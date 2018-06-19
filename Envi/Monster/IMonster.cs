@@ -24,5 +24,8 @@ namespace Envi
         {
             return false;
         }
+        public virtual int GetStrength() { return 1; }
+
+        public virtual void IncreaseStrength(){}
     }
 }

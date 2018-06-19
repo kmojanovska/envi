@@ -59,14 +59,14 @@ namespace Envi
             return false;
         }
 
-        public int GetStrength()
+        public override int GetStrength()
         {
             return strength;
         }
 
-        public void IncreaseStrength()
+        public override void IncreaseStrength()
         {
-            strength++;
+            this.strength++;
         }
     }
 }

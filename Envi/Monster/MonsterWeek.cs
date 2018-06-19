@@ -44,6 +44,7 @@ namespace Envi
         {
             monsterRectangle.Y += speed;
         }
+        
 
         public override bool Collision(Rectangle bulletRectangle)
         {

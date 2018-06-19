@@ -27,15 +27,15 @@ namespace Envi
             }
             if(level == 2 || level == 3)
             {
-                for(int i = 0; i < random.Next(1, Form1.ActiveForm.Width / 40); i++)
+                for(int i = 0; i < random.Next(1, Form1.ActiveForm.Width / 50); i++)
                 {
-                    monstersList.Add(new MonsterMedium(random.Next(20, Form1.ActiveForm.Width), random.Next(30, 100)));
+                    monstersList.Add(new MonsterMedium(random.Next(20, Form1.ActiveForm.Width), random.Next(10, 30)));
                 }
                 if (level == 3)
                 {
                     for (int i = 0; i < random.Next(0, 2); i++)
                     {
-                        monstersList.Add(new MonsterStrong(random.Next(20, Form1.ActiveForm.Width - 20), random.Next(30, 100)));
+                        monstersList.Add(new MonsterStrong(random.Next(20, Form1.ActiveForm.Width - 20), random.Next(2, 30)));
                     }
                 }
             }
