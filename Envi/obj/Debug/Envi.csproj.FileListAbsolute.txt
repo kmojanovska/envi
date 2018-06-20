@@ -13,3 +13,17 @@ E:\Fakultet\C#\Kill them all\Envi\Envi\bin\Debug\Envi.application
 E:\Fakultet\C#\Kill them all\Envi\Envi\obj\Debug\Envi.exe.manifest
 E:\Fakultet\C#\Kill them all\Envi\Envi\obj\Debug\Envi.application
 E:\Fakultet\C#\Kill them all\Envi\Envi\obj\Debug\Envi.ResultsForm.resources
+E:\Fakultet\C#\Envi\envi\Envi\bin\Debug\Envi.exe.config
+E:\Fakultet\C#\Envi\envi\Envi\bin\Debug\Envi.exe.manifest
+E:\Fakultet\C#\Envi\envi\Envi\bin\Debug\Envi.application
+E:\Fakultet\C#\Envi\envi\Envi\bin\Debug\Envi.exe
+E:\Fakultet\C#\Envi\envi\Envi\bin\Debug\Envi.pdb
+E:\Fakultet\C#\Envi\envi\Envi\obj\Debug\Envi.csprojResolveAssemblyReference.cache
+E:\Fakultet\C#\Envi\envi\Envi\obj\Debug\Envi.Form1.resources
+E:\Fakultet\C#\Envi\envi\Envi\obj\Debug\Envi.Properties.Resources.resources
+E:\Fakultet\C#\Envi\envi\Envi\obj\Debug\Envi.ResultsForm.resources
+E:\Fakultet\C#\Envi\envi\Envi\obj\Debug\Envi.csproj.GenerateResource.Cache
+E:\Fakultet\C#\Envi\envi\Envi\obj\Debug\Envi.exe.manifest
+E:\Fakultet\C#\Envi\envi\Envi\obj\Debug\Envi.application
+E:\Fakultet\C#\Envi\envi\Envi\obj\Debug\Envi.exe
+E:\Fakultet\C#\Envi\envi\Envi\obj\Debug\Envi.pdb
