@@ -318,8 +318,6 @@ namespace Envi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ChooseCharacter chooseCharacter = new ChooseCharacter();
-            chooseCharacter.Show();
         }
 
         private void btnDeadPool_Click(object sender, EventArgs e)
