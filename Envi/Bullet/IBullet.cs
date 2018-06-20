@@ -9,7 +9,7 @@ namespace Envi
 {
     public abstract class IBullet
     {
-
+        
         public int x;
         public int y;
         private Rectangle bulletRectangle;

@@ -9,8 +9,6 @@ namespace Envi
 {
     class BulletType2 : IBullet
     {
-        public int x;
-        public int y;
         private int width, height;
         private int speed;
         public Image bulletImage;
@@ -21,7 +19,7 @@ namespace Envi
         }
 
 
-        public BulletType2(int x, int y, int speed)
+        public BulletType2(int x, int y, int speed, string name)
         {
             this.x = x;
             this.y = y;

@@ -8,3 +8,7 @@ E:\Fakultet\C#\Kill them all\Envi\Envi\obj\Debug\Envi.csproj.GenerateResource.Ca
 E:\Fakultet\C#\Kill them all\Envi\Envi\obj\Debug\Envi.exe
 E:\Fakultet\C#\Kill them all\Envi\Envi\obj\Debug\Envi.pdb
 E:\Fakultet\C#\Kill them all\Envi\Envi\obj\Debug\Envi.ChooseCharacter.resources
+E:\Fakultet\C#\Kill them all\Envi\Envi\bin\Debug\Envi.exe.manifest
+E:\Fakultet\C#\Kill them all\Envi\Envi\bin\Debug\Envi.application
+E:\Fakultet\C#\Kill them all\Envi\Envi\obj\Debug\Envi.exe.manifest
+E:\Fakultet\C#\Kill them all\Envi\Envi\obj\Debug\Envi.application

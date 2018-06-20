@@ -21,6 +21,7 @@ namespace Envi
         public Boolean play = false;
         private int level = 1;
         private double time = 0;
+        private string name;
         private int score = 0;
         private int monstersKilled = 0;
         private Image characterImage = Properties.Resources.character;
@@ -45,11 +46,11 @@ namespace Envi
             monsters.AddMonster(new MonsterWeek(170, 15));
             if(level == 1)
             {
-                bullets.AddBullet(new BulletType1(character.GetX, character.GetY, 15));
+                bullets.AddBullet(new BulletType1(character.GetX, character.GetY, 15, name));
             }
             else
             {
-                bullets.AddBullet(new BulletType2(character.GetX, character.GetY, 15));
+                bullets.AddBullet(new BulletType2(character.GetX, character.GetY, 15, name));
             }
         }
 
@@ -133,9 +134,17 @@ namespace Envi
                         if (m.Collision(bullet.BulletRect))
                         {
                             bullets.KillBullet(bullet);
-                            BulletType1 b = new BulletType1(character.GetX, character.GetY, 30);
+                            BulletType1 b = new BulletType1(character.GetX, character.GetY, 30, name);
                             bullets.AddBullet(b);
-                            b.bulletImage = Properties.Resources.fireBig;
+                            if (name == "thor")
+                            {
+                                b.bulletImage = Properties.Resources.hammer1;
+                            }
+                            else
+                            {
+                                b.bulletImage = Properties.Resources.fireBig;
+                            }
+                            
                             if (m is MonsterMedium)
                             {
                                 m.IncreaseStrength();
@@ -201,6 +210,7 @@ namespace Envi
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            name = "deadpool";
             label1.Text = "0";
             label2.Text = "No monsters killed yet";
         }
@@ -255,11 +265,11 @@ namespace Envi
                 bullets = new Bullets();
                 if(level == 1)
                 {
-                    bullets.AddBullet(new BulletType1(character.GetX, character.GetY, 30));
+                    bullets.AddBullet(new BulletType1(character.GetX, character.GetY, 30, name));
                 }
                 else
                 {
-                    bullets.AddBullet(new BulletType2(character.GetX, character.GetY, 30));
+                    bullets.AddBullet(new BulletType2(character.GetX, character.GetY, 30, name));
                 }
                 this.Invalidate();
             }
@@ -272,11 +282,11 @@ namespace Envi
             {
                 if(level == 1)
                 {
-                    bullets.AddBullet(new BulletType1(character.GetX, character.GetY, 30));
+                    bullets.AddBullet(new BulletType1(character.GetX, character.GetY, 30, name));
                 }
                 else
                 {
-                    bullets.AddBullet(new BulletType2(character.GetX, character.GetY, 30));
+                    bullets.AddBullet(new BulletType2(character.GetX, character.GetY, 30, name));
                 }
                 
                 this.Invalidate();
@@ -292,24 +302,28 @@ namespace Envi
         private void btnDeadPool_Click(object sender, EventArgs e)
         {
             characterImage = Properties.Resources.character;
+            name = "deadpool";
             lblCharacter.Text = "DEADPOOL";
         }
 
         private void btnThor_Click(object sender, EventArgs e)
         {
             characterImage = Properties.Resources.thor;
+            name = "thor";
             lblCharacter.Text = "THOR";
         }
 
         private void btnIronMan_Click(object sender, EventArgs e)
         {
             characterImage = Properties.Resources.hulk;
+            name = "hulk";
             lblCharacter.Text = "HULK";
         }
 
         private void btnHulk_Click(object sender, EventArgs e)
         {
             characterImage = Properties.Resources.iron_man;
+            name = "ironman";
             lblCharacter.Text = "IRONMAN";
         }
 

@@ -16,6 +16,7 @@ namespace Envi
         private int width, height;
         public Image characterImage;
         private Rectangle characterRectangle;
+        public string name;
 
         public Rectangle CharacterRec
         {
@@ -26,9 +27,18 @@ namespace Envi
         {
             //300 y-
             x = 100;
-            y = Form1.ActiveForm.Height-120;
+            if(Form1.ActiveForm == null)
+            {
+                y = 120;
+            }
+            else
+            {
+                y = Form1.ActiveForm.Height - 120;
+
+            }
             width = 50;
             height = 69;
+            name = "deadpool";
 
             characterImage = Envi.Properties.Resources.thor;
             characterRectangle = new Rectangle(x, y, width, height);

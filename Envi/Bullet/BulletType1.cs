@@ -10,8 +10,6 @@ namespace Envi
 {
     class BulletType1 : IBullet
     {
-        public int x;
-        public int y;
         private int width, height;
         private int speed;
         public Image bulletImage;
@@ -22,7 +20,7 @@ namespace Envi
         }
 
        
-        public BulletType1(int x, int y, int speed)
+        public BulletType1(int x, int y, int speed, string name)
         {
             this.x = x;
             this.y = y;
@@ -30,8 +28,14 @@ namespace Envi
 
             width = 20;
             height = 20;
-
-            bulletImage = Envi.Properties.Resources.fire;
+            if(name == "thor")
+            {
+                bulletImage = Envi.Properties.Resources.hammer;
+            }
+            else
+            {
+                bulletImage = Envi.Properties.Resources.fire;
+            }
             bulletRectangle = new Rectangle(x, y, width, height);
         }
 
