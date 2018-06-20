@@ -139,9 +139,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="back.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\character.png" />
   </ItemGroup>
   <ItemGroup>
