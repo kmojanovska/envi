@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.btn_play = new System.Windows.Forms.Button();
@@ -50,6 +51,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.lblPause = new System.Windows.Forms.Label();
+            this.btnResults = new System.Windows.Forms.Button();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timer1
@@ -204,33 +208,33 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label7.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.label7.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
             this.label7.Location = new System.Drawing.Point(60, 332);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(294, 21);
+            this.label7.Size = new System.Drawing.Size(213, 16);
             this.label7.TabIndex = 17;
             this.label7.Text = "WHO DO YOU WANNA PLAY WITH?";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label8.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(73, 243);
+            this.label8.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.label8.Font = new System.Drawing.Font("Comic Sans MS", 8.25F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(61, 263);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(257, 27);
+            this.label8.Size = new System.Drawing.Size(151, 16);
             this.label8.TabIndex = 18;
             this.label8.Text = "YOU ARE PLAYING WITH";
             // 
             // lblCharacter
             // 
             this.lblCharacter.AutoSize = true;
-            this.lblCharacter.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblCharacter.Font = new System.Drawing.Font("Showcard Gothic", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCharacter.Location = new System.Drawing.Point(93, 279);
+            this.lblCharacter.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.lblCharacter.Font = new System.Drawing.Font("Showcard Gothic", 20.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCharacter.Location = new System.Drawing.Point(58, 288);
             this.lblCharacter.Name = "lblCharacter";
-            this.lblCharacter.Size = new System.Drawing.Size(211, 44);
+            this.lblCharacter.Size = new System.Drawing.Size(157, 33);
             this.lblCharacter.TabIndex = 19;
             this.lblCharacter.Text = "DEADPOOL";
             // 
@@ -268,14 +272,49 @@
             this.lblPause.Text = "PAUSE";
             this.lblPause.Visible = false;
             // 
+            // btnResults
+            // 
+            this.btnResults.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.btnResults.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnResults.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnResults.Location = new System.Drawing.Point(244, 55);
+            this.btnResults.Name = "btnResults";
+            this.btnResults.Size = new System.Drawing.Size(142, 41);
+            this.btnResults.TabIndex = 23;
+            this.btnResults.Text = "Best results!";
+            this.btnResults.UseVisualStyleBackColor = false;
+            this.btnResults.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // tbUsername
+            // 
+            this.tbUsername.Location = new System.Drawing.Point(63, 174);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(200, 20);
+            this.tbUsername.TabIndex = 24;
+            this.tbUsername.TextChanged += new System.EventHandler(this.tbUsername_TextChanged);
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.lblUsername.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblUsername.Location = new System.Drawing.Point(63, 150);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(157, 21);
+            this.lblUsername.TabIndex = 25;
+            this.lblUsername.Text = "Your name please...";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.BackgroundImage = global::Envi.Properties.Resources.back;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(398, 461);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.tbUsername);
+            this.Controls.Add(this.btnResults);
             this.Controls.Add(this.lblPause);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -294,9 +333,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_play);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Envi";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
@@ -330,6 +370,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblPause;
+        private System.Windows.Forms.Button btnResults;
+        private System.Windows.Forms.TextBox tbUsername;
+        private System.Windows.Forms.Label lblUsername;
     }
 }
 

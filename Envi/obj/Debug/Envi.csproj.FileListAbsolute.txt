@@ -12,3 +12,4 @@ E:\Fakultet\C#\Kill them all\Envi\Envi\bin\Debug\Envi.exe.manifest
 E:\Fakultet\C#\Kill them all\Envi\Envi\bin\Debug\Envi.application
 E:\Fakultet\C#\Kill them all\Envi\Envi\obj\Debug\Envi.exe.manifest
 E:\Fakultet\C#\Kill them all\Envi\Envi\obj\Debug\Envi.application
+E:\Fakultet\C#\Kill them all\Envi\Envi\obj\Debug\Envi.ResultsForm.resources

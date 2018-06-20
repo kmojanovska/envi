@@ -17,8 +17,9 @@ namespace Envi
         Character character = null;
         Monsters monsters = null;
         Bullets bullets = null;
-        private object e;
+        Results results = null;
         public Boolean play = false;
+        private string username = "";
         private int level = 1;
         private double time = 0;
         private string name;
@@ -56,15 +57,31 @@ namespace Envi
 
         void Pause()
         {
-
             play = false;
         }
 
         public Form1()
         {
+           
             Pause();
             this.KeyPreview = true;
             InitializeComponent();
+            if (tbUsername.Text.Count() == 0)
+            {
+                btn_play.Enabled = false;
+            }
+            else
+            {
+                btn_play.Enabled = true;
+            }
+            results = new Results();
+            string[] lines = System.IO.File.ReadAllLines(@"..\best_results.txt");
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(' ');
+                results.AddResult(new Result(parts[0], Int32.Parse(parts[2]), parts[4].ToLower()));
+            }
+
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -120,13 +137,18 @@ namespace Envi
                         play = false;
                         if (dialogResult == DialogResult.Yes)
                         {
+                            Result result = new Result(username, score, name);
+                            results.AddResult(result);
+                            System.IO.File.WriteAllLines(@"..\best_results.txt", results.bestResults());
                             Play();
                         }
                         else if (dialogResult == DialogResult.No)
                         {
+                            Result result = new Result(username, score, name);
+                            results.AddResult(result);
+                            System.IO.File.WriteAllLines(@"..\best_results.txt", results.bestResults());
                             toggleVisibility();
                             Pause();
-
                         }
                     }
                     foreach (IBullet bullet in bullets.GetBulletsList)
@@ -245,6 +267,7 @@ namespace Envi
         private void btn_play_Click(object sender, EventArgs e)
         {
             btn_play.Text = "Restart";
+            username = tbUsername.Text;
             Play();
         }
 
@@ -335,6 +358,7 @@ namespace Envi
                 label1.Visible = true;
                 label2.Visible = true;
                 label9.Visible = true;
+                btnResults.Visible = false;
                 lblCharacter.Visible = false;
                 label8.Visible = false;
                 label7.Visible = false;
@@ -346,15 +370,19 @@ namespace Envi
                 btnHulk.Visible = false;
                 btnIronMan.Visible = false;
                 btnThor.Visible = false;
-                
+                tbUsername.Visible = false;
+                lblUsername.Visible = false;
             }
             else
             {
+                tbUsername.Visible = false;
+                lblUsername.Visible = false;
                 label10.Visible = false;
                 label1.Visible = false;
                 label2.Visible = false;
                 label9.Visible = false;
                 btn_play.Visible = true;
+                btnResults.Visible = true;
                 btn_play.Text = "PLAY!";
                 lblCharacter.Visible = true;
                 label8.Visible = true;
@@ -372,7 +400,7 @@ namespace Envi
         }
         public void checkForLevel()
         {
-            if(score > 600)
+            if(score > 1200)
             {
                 level = 3;
                 monsters = new Monsters(3);
@@ -380,7 +408,7 @@ namespace Envi
                 Form1.ActiveForm.BackgroundImage = Envi.Properties.Resources._3;
                 label10.Font = new Font("Comic Sans MS", 20, FontStyle.Bold);
             }
-            else if (score > 300 && score <=600)
+            else if (score > 600 && score <=1200)
             {
                 level = 2;
                 monsters = new Monsters(2);
@@ -388,10 +416,10 @@ namespace Envi
                 Form1.ActiveForm.BackgroundImage = Envi.Properties.Resources.sky;
                 label10.Font = new Font("Comic Sans MS", 20, FontStyle.Bold);
             }
-            else if(score <= 300)
+            else if(score <= 600)
             {
                 level = 1;
-                monsters = new Monsters(2);
+                monsters = new Monsters(1);
                 label10.Text = "Level 1";
                 Form1.ActiveForm.BackgroundImage = Envi.Properties.Resources.back;
                 label10.Font = new Font("Comic Sans MS", 14, FontStyle.Bold);
@@ -414,6 +442,25 @@ namespace Envi
                 }
                 
             } 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ResultsForm resultsForm = new ResultsForm();
+            resultsForm.Show();
+        }
+
+        private void tbUsername_TextChanged(object sender, EventArgs e)
+        {
+            if (tbUsername.Text.Count() == 0)
+            {
+                btn_play.Enabled = false;
+            }
+            else
+            {
+                btn_play.Enabled = true;
+            }
+
         }
     }
 }
